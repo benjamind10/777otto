@@ -44,3 +44,37 @@
   font-size: 100px;
   margin-top: 0;
 }
+
+@media screen and (max-width: 960px) {
+  .home {
+    margin-top: 0;
+  }
+  .draw-games {
+    margin-top: 0;
+  }
+
+  .products {
+    margin-top: 0;
+  }
+
+  .sign-up {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home {
+    margin-top: 0;
+  }
+  .draw-games {
+    margin-top: 0;
+  }
+
+  .products {
+    margin-top: 0;
+  }
+
+  .sign-up {
+    margin-top: 0;
+  }
+}
