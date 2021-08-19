@@ -1,16 +1,18 @@
-import React from "react";
-import "../App.css";
-import { Button } from "./Button";
-import "./HeroSection.css";
+import React from 'react';
+import '../App.css';
+import { Button } from './Button';
+import './HeroSection.css';
 
 function HeroSection() {
   return (
     <div className="hero-container">
       <video src="/videos/video-2.mp4" autoPlay loop muted />
-      <h1>“LUCK GOES WITH YOU” 
+      <h1>
+        “LUCK GOES WITH YOU”
+        <br />
         <span className="span-phrase"> CATCH IT!*</span>
       </h1>
-      <p>“START TODAY AND GET CLOSER TO RESULTS INSTANTLY”</p>
+      <p>“START TODAY AND GET CLOSER TO WINNING THE LOTTERY”</p>
       <div className="hero-btns">
         <Button
           className="btns"

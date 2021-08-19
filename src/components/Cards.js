@@ -11,8 +11,8 @@ function Cards() {
           <ul className="cards__items">
             <CardItem
               src="images/img-9.jpg"
-              text="USA lottery results"
-              label="USA"
+              text="Florida Pick 3"
+              label="FL"
               path="/draw-games"
             />
             <CardItem
