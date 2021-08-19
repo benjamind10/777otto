@@ -1,0 +1,12 @@
+{
+        "folders": [],
+        "settings": {},
+        "editor.formatOnSave": true,
+
+        "vetur.format.defaultFormatterOptions": {
+                "prettier": {
+                    "singleQuote": true
+                }
+            },
+}
+
