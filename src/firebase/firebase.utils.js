@@ -1,9 +1,12 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import configs from '../configs';
+
+const KEY = configs.F_KEY;
 
 const config = {
-  apiKey: 'AIzaSyCp632dy9_0jzc5TOOC2HReBJ8MvZVUBHU',
+  apiKey: KEY,
   authDomain: 'otto-d9834.firebaseapp.com',
   projectId: 'otto-d9834',
   storageBucket: 'otto-d9834.appspot.com',

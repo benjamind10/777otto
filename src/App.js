@@ -1,35 +1,61 @@
 import React from 'react';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { auth } from './firebase/firebase.utils';
+
 import './App.css';
 import Home from './components/pages/Home';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import DrawGames from './components/pages/DrawGames';
 import Products from './components/pages/Products';
 import ScrollToTop from './components/ScrollToTop';
 import SignInAndSingUpPage from './components/pages/sign-in-and-sign-up.component';
 
-function App() {
-  window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  };
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
 
-  return (
-    <>
-      <Router>
-        <Navbar />
-        <Switch>
-          <ScrollToTop>
-            <Route path="/" exact component={Home} />
-          </ScrollToTop>
-        </Switch>
-        <Switch>
-          <Route path="/draw-games" component={DrawGames} />
-          <Route path="/products" component={Products} />
-          <Route path="/login" component={SignInAndSingUpPage} />
-        </Switch>
-      </Router>
-    </>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      currentUser: null,
+    };
+  }
+
+  unsubscribeFromAuth = null;
+
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+      this.setState({ currentUser: user });
+
+      console.log(user);
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+
+  render() {
+    return (
+      <>
+        <Router>
+          <Navbar />
+          <Switch>
+            <ScrollToTop>
+              <Route path="/" exact component={Home} />
+            </ScrollToTop>
+          </Switch>
+          <Switch>
+            <Route path="/draw-games" component={DrawGames} />
+            <Route path="/products" component={Products} />
+            <Route path="/login" component={SignInAndSingUpPage} />
+          </Switch>
+        </Router>
+      </>
+    );
+  }
 }
 
 export default App;

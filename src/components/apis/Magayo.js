@@ -1,6 +1,7 @@
 import axios from 'axios';
+import configs from '../../configs';
 
-const KEY = 'Wd4f2EpMTFLA5eYptQ';
+const KEY = configs.M_KEY;
 
 export default axios.create({
   baseURL: 'https://www.magayo.com/api/results.php',
