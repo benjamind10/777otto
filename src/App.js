@@ -5,8 +5,8 @@ import Home from './components/pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DrawGames from './components/pages/DrawGames';
 import Products from './components/pages/Products';
-import SignUp from './components/pages/SignUp';
 import ScrollToTop from './components/ScrollToTop';
+import SignInAndSingUpPage from './components/pages/sign-in-and-sign-up.component';
 
 function App() {
   window.onbeforeunload = function () {
@@ -25,7 +25,7 @@ function App() {
         <Switch>
           <Route path="/draw-games" component={DrawGames} />
           <Route path="/products" component={Products} />
-          <Route path="/sign-up" component={SignUp} />
+          <Route path="/login" component={SignInAndSingUpPage} />
         </Switch>
       </Router>
     </>
