@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { auth } from '../firebase/firebase.utils';
+import { ReactComponent as Logo } from '../images/crown.svg';
 
 function Navbar({ currentUser }) {
   const [click, setClick] = useState(false);
@@ -36,7 +37,7 @@ function Navbar({ currentUser }) {
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             777otto
-            <i class="fab fa-typo3" />
+            <Logo className="logo" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
