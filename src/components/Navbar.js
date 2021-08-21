@@ -69,11 +69,21 @@ function Navbar({ currentUser }) {
 
             <li>
               {currentUser ? (
-                <div className="nav-links" onClick={() => auth.signOut()}>
+                <div
+                  className="nav-links"
+                  onClick={() => {
+                    closeMobileMenu();
+                    auth.signOut();
+                  }}
+                >
                   SIGN OUT
                 </div>
               ) : (
-                <Link className="nav-links" to="/login">
+                <Link
+                  className="nav-links"
+                  to="/login"
+                  onClick={closeMobileMenu}
+                >
                   SIGN IN
                 </Link>
               )}
