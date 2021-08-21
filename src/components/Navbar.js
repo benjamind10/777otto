@@ -1,28 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from './Button';
+// import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { auth } from '../firebase/firebase.utils';
 
-function Navbar() {
+function Navbar({ currentUser }) {
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
+
+  // Unused code after implementing firebase will keep for the record.
+
+  // const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
+  // Unused code after implementing firebase will keep for the record.
 
-  useEffect(() => {
-    showButton();
-  }, []);
+  // const showButton = () => {
+  //   if (window.innerWidth <= 960) {
+  //     setButton(false);
+  //   } else {
+  //     setButton(true);
+  //   }
+  // };
 
-  window.addEventListener('resize', showButton);
+  // useEffect(() => {
+  //   showButton();
+  // }, []);
+
+  // window.addEventListener('resize', showButton);
 
   return (
     <>
@@ -38,7 +44,7 @@ function Navbar() {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className="nav-item">
               <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                Home
+                HOME
               </Link>
             </li>
             <li className="nav-item">
@@ -47,7 +53,7 @@ function Navbar() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Draw Games
+                DRAW GAMES
               </Link>
             </li>
             <li className="nav-item">
@@ -56,21 +62,22 @@ function Navbar() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Products
+                PRODUCTS
               </Link>
             </li>
 
             <li>
-              <Link
-                to="/LOGIN"
-                className="nav-links-mobile"
-                onClick={closeMobileMenu}
-              >
-                LOG IN
-              </Link>
+              {currentUser ? (
+                <div className="nav-links" onClick={() => auth.signOut()}>
+                  SIGN OUT
+                </div>
+              ) : (
+                <Link className="nav-links" to="/login">
+                  SIGN IN
+                </Link>
+              )}
             </li>
           </ul>
-          {button && <Button buttonStyle="btn--outline">LOG IN</Button>}
         </div>
       </nav>
     </>

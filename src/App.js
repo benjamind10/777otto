@@ -41,7 +41,7 @@ class App extends React.Component {
     return (
       <>
         <Router>
-          <Navbar />
+          <Navbar currentUser={this.state.currentUser} />
           <Switch>
             <ScrollToTop>
               <Route path="/" exact component={Home} />

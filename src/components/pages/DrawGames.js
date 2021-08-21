@@ -2,6 +2,8 @@ import React from 'react';
 import '../../App.css';
 import Results from '../Results';
 
+console.log(process.env);
+
 export default function DrawGames() {
   return (
     <div>
