@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../App.css';
 import Results from '../Results';
+import { auth } from '../../firebase/firebase.utils';
 
-console.log(process.env);
-
-export default function DrawGames() {
+const DrawGames = ({ currentUser }) => {
   return (
     <div>
-      <h1>Draw Games</h1>
-      <Results />
+      {currentUser ? (
+        <div>
+          <Results />
+        </div>
+      ) : (
+        <div>You are not authorized.</div>
+      )}
     </div>
   );
-}
+};
+
+export default DrawGames;
