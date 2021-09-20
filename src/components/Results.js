@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Magayo from './apis/Magayo';
+import React, { Component } from "react";
+import Magayo from "./apis/Magayo";
 
 class Results extends Component {
   state = { res: [] };

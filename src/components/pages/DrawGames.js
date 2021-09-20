@@ -2,24 +2,14 @@ import React from 'react';
 import '../../App.css';
 import Results from '../Results';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import Pick from '../../pick3/Pick';
 
 const DrawGames = ({ currentUser }) => {
-  const parse = axios
-    .get('https://www.flalottery.com/exptkt/p3.htm')
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
   return (
     <div>
       {currentUser ? (
         <div>
-          <Results />
-          {parse}
+          <Pick />
         </div>
       ) : (
         <div>You are not authorized.</div>
